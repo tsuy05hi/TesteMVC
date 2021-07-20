@@ -16,25 +16,25 @@ namespace TesteMVC.Controllers
             
             connectionString = "Data Source=DBMVC.db;Version=3;";            
             conn0 = new DBCONN(connectionString);
-//            conn0.Open();
+            conn0.Open();
         }
         public ActionResult Index()
         {
             List<Pessoa> lstPessoas = new List<Pessoa>();
-            /*
             Genericos genericos = new Genericos();
-            SqliteDataReader pessoas  = conn0.Consulta("SELECT NOME, SOBRENOME, CIDADE FROM PESSOA");
+            SQLiteDataReader pessoas  = conn0.Consulta("SELECT NOME, SOBRENOME, CIDADE FROM PESSOA");
             Pessoa pessoa = new Pessoa();
             
             while (pessoas.Read())
             {
-                genericos.ConvertReaderToRelevantModel(pessoas,pessoa);
+                genericos.ConvertReaderToRelevantModel(pessoas,pessoa = new Pessoa());
                 lstPessoas.Add(pessoa);
 
             }
-            */
             lstPessoas.Add (
-                new Pessoa("jorge","sato", "suzano"));
+                new Pessoa("Karina","sato", "São Paulo"));
+            lstPessoas.Add (
+                new Pessoa("Larissa","sato", "São Paulo"));                
             return View(lstPessoas.ToList());
         }
     }
